@@ -2,23 +2,29 @@ package com.imooc.user.service;
 
 import com.imooc.thrift.user.UserInfo;
 import com.imooc.thrift.user.UserService;
+import com.imooc.user.service.com.imooc.user.mapper.UserMapper;
 import org.apache.thrift.TException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService.Iface {
 
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public UserInfo getUserById(int id) throws TException {
-        return null;
+        return userMapper.getUserById(id);
     }
 
     @Override
     public UserInfo getUserByName(String username) throws TException {
-        return null;
+        return userMapper.getUserByName(username);
     }
 
     @Override
     public void registerUser(UserInfo userinfo) throws TException {
-
+            userMapper.RegisterUser(userinfo);
     }
 }
