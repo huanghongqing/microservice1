@@ -10,9 +10,9 @@ public interface UserMapper {
 
         @Select("select id,username,password,real_name as realName,mobile,email from pe_user where id=#{id}")
         UserInfo getUserById(@Param("id") int id);
-        @Select("select id,username,password,real_name as realName,mobile,email from pe_user where username=#{username}")
+        @Select("select id,username,password,realname as realName,mobile,email from pe_user where username=#{username}")
         UserInfo getUserByName(@Param("username") String  username);
 
-        @Insert("insert into pe_user (username,password,real_name,mobile,email) values (#{u.username},#{u.password},#{u.realName},#{u.mobile},#{u.email})")
+        @Insert("insert into pe_user (username,password,realname,mobile,email) values (#{u.username},#{u.password},#{u.realName},#{u.mobile},#{u.email})")
         void RegisterUser(@Param("u") UserInfo userInfo);
 }
